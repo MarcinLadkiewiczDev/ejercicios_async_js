@@ -22,16 +22,24 @@ const mapPersonajes = (personajes) => {
         image: personaje.image
     }));
     console.log(mappedPersonajes);
-    pintarPersonajes(mappedPersonajes);
+    addOptionsPersonajes(mappedPersonajes);
 }
 
-const pintarPersonajes = (personajes) => {
+const addOptionsPersonajes = (personajes) => {
     const characterList = document.querySelector("#character-list")
     personajes.forEach(personaje => {
         const option = document.createElement("option");
+        option.value = personaje.name;
         option.innerText = personaje.name;
         characterList.appendChild(option);
-});
+})}
+
+const eventListener = () => {
+    characterList.addEventListener("change", (event) =>{
+        const imagenPersonaje = document.querySelector(".character-image");
+        
+        
+    })
 }
 
 mostrarPersonaje();
