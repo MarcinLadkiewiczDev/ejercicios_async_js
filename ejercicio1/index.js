@@ -8,7 +8,6 @@ const mostrarPersonaje = async () => {
     try {
         const res = await fetch("https://thronesapi.com/api/v2/Characters");
         const personajes = await res.json();
-        console.log(personajes);
         mapPersonajes(personajes);
     } catch (error) {
         alert("Algo no funciona.")
@@ -19,28 +18,33 @@ const mostrarPersonaje = async () => {
 const mapPersonajes = (personajes) => {
     const mappedPersonajes = personajes.map(personaje => ({
         name: personaje.fullName,
-        image: personaje.image
+        image: personaje.imageUrl
     }));
-    console.log(mappedPersonajes);
+    const porDefecto = {name: "Selecciona un personaje", image: "Aquí saldrá la imagen"};
+    mappedPersonajes.unshift(porDefecto);
     addOptionsPersonajes(mappedPersonajes);
+    
 }
 
 const addOptionsPersonajes = (personajes) => {
     const characterList = document.querySelector("#character-list")
     personajes.forEach(personaje => {
         const option = document.createElement("option");
-        option.value = personaje.name;
+        option.value = personaje.image;
         option.innerText = personaje.name;
         characterList.appendChild(option);
-})}
+    })
 
-const eventListener = () => {
-    characterList.addEventListener("change", (event) =>{
-        const imagenPersonaje = document.querySelector(".character-image");
-        
-        
+    characterList.addEventListener("change", (event) => {
+        imagenPersonaje(event.target.value);
     })
 }
+
+const imagenPersonaje = (imagen) => {
+    document.querySelector("img").setAttribute('src', `${imagen}`);
+    document.querySelector("img").setAttribute('alt', 'Imagen Personaje');
+}
+
 
 mostrarPersonaje();
 
