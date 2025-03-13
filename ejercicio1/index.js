@@ -20,7 +20,7 @@ const mapPersonajes = (personajes) => {
         name: personaje.fullName,
         image: personaje.imageUrl
     }));
-    const porDefecto = {name: "Selecciona un personaje", image: "Aquí saldrá la imagen"};
+    const porDefecto = {name: "Selecciona un Personaje", image: "null"};
     mappedPersonajes.unshift(porDefecto);
     addOptionsPersonajes(mappedPersonajes);
     
