@@ -7,6 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgb(23, 23, 23);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 img {
@@ -18,4 +19,10 @@ img {
   width: 300px;
   padding: 10px;
   text-transform: uppercase;
+}
+
+.pokemonName {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }

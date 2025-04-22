@@ -9,7 +9,7 @@ const getRandomId = (max) => Math.floor(Math.random() * max + 1);
 const getPokemon = async () => {
   try {
     const res = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${getRandomId(1000)}/`
+      `https://pokeapi.co/api/v2/pokemon/${getRandomId(151)}/`
     );
     const pokemon = await res.json();
     paintPokemon(pokemon);
@@ -20,8 +20,10 @@ const getPokemon = async () => {
 
 const paintPokemon = (pokemon) => {
   const pokemonImage = document.querySelector("img");
+  const pokemonName = document.querySelector(".pokemonName");
   pokemonImage.setAttribute("src", `${pokemon.sprites.front_default}`);
   pokemonImage.setAttribute("alt", `${pokemon.name}`);
+  pokemonName.textContent = `${pokemon.name}`;
 };
 
 const change = document.querySelector("#randomPokemon");
