@@ -9,7 +9,7 @@ const getRandomId = (max) => Math.floor(Math.random() * max + 1);
 const getPokemon = async () => {
   try {
     const res = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${getRandomId(151)}/`
+      `https://pokeapi.co/api/v2/pokemon/${getRandomId(1000)}/`
     );
     const pokemon = await res.json();
     paintPokemon(pokemon);
